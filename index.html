@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4 Column 3 Row Layout</title>
+  <style>
+    /* Ensure the layout is not affected by other sections */
+    .four-column-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Using CSS Grid for the layout */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Each box within the grid */
+    .box {
+      background: linear-gradient(to bottom, #f4b414, #ebede0);
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+      position: relative;
+      box-shadow: 2px 2px 4px 1px rgba(211,211,211,0.6);
+     transition: transform 0.3s ease-in-out; /* Smooth hover transition */
+    }
+
+    .box-img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .box-text {
+      font-size: 20px;
+      color: #00579d;
+      font-weight: 800;
+    }
+
+    /* Hover effect */
+    .box:hover {
+      transform: translateY(-10px); /* Box lift effect */
+    }
+
+    /* The hover-info background and text */
+    .hover-info {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(82, 86, 78, 0.8); /* Dark transparent background on hover */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease; /* Smooth transition */
+    }
+
+    .box:hover .hover-info {
+      opacity: 1; /* Show on hover */
+    }
+
+    /* LinkedIn button styling */
+    .hover-info button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color:  #00579d;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px; /* Space between the icon and the text */
+    }
+
+    /* LinkedIn button icon size */
+    .hover-info button i {
+      font-size: 1.2em;
+    }
+
+    .hover-info button:hover {
+      background: transparent;
+      border: 2px solid white;
+    }
+
+    /* Make the layout responsive for smaller screens */
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .grid-container {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+      }
+    }
+
+    /* Optional: Adding padding for responsiveness on larger screens */
+    @media (max-width: 1200px) {
+      .four-column-container {
+        padding: 15px;
+      }
+    }
+    /*Center the Last Row*/
+    .last-row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .last-row .box {
+        width: 100%; /* Make them take up the same space as others */
+        max-width: calc(1200px / 4 - 20px); /* Same width as boxes in 4 column layout */
+        margin: 0 10px; /* Add some horizontal spacing between boxes */
+    }
+
+    /* Mobile View for Last Row */
+    @media (max-width: 480px) {
+        .last-row {
+            flex-direction: column; /* Stack the boxes vertically */
+            align-items: center; /* Center the boxes horizontally */
+        }
+
+        .last-row .box {
+            max-width: 100%; /* Take full width on small screens */
+            margin: 10px 0; /* Add vertical margin between boxes */
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="four-column-container">
+    <div class="grid-container">
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 1" class="box-img">
+        <p class="box-text">Ava Carol</p>
+        <div class="hover-info">
+          <p>Software Engineer</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="aarthi" class="box-img">
+        <p class="box-text">Bella Audrey</p>
+        <div class="hover-info">
+          <p>Product Manufacturing,<br>Factory Automation expert</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 3" class="box-img">
+        <p class="box-text">Bernadette Caroline</p>
+        <div class="hover-info">
+          <p>Web Development</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 4" class="box-img">
+        <p class="box-text">Caroline Claire</p>
+        <div class="hover-info">
+          <p>Product Development & Delivery Expert</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-container">
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 5" class="box-img">
+        <p class="box-text">Diana Deirdre</p>
+        <div class="hover-info">
+          <p>Data Analytics & Product Management</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 6" class="box-img">
+        <p class="box-text">Faith Heather</p>
+        <div class="hover-info">
+          <p>HR Operations Partner</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 7" class="box-img">
+        <p class="box-text">Emily Joan</p>
+        <div class="hover-info">
+          <p>Finance Manager</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="box">
+        <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 8" class="box-img">
+        <p class="box-text">Felicity</p>
+        <div class="hover-info">
+          <p>Web Developer</p>
+          <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+            <button>
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Last Row with Centered Content -->
+    <div class="grid-container last-row">
+      <div class="box">
+          <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Jessica Opara" class="box-img">
+          <p class="box-text">Lisa Maria</p>
+          <div class="hover-info">
+              <p>Product Development Manager</p>
+              <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+                <button>
+                  <i class="fab fa-linkedin"></i> LinkedIn
+                </button>
+              </a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="https://i.ibb.co/WWY846xJ/16.png" alt="Image 10" class="box-img">
+          <p class="box-text">Michelle</p>
+          <div class="hover-info">
+              <p>Digital Marketing</p>
+              <a href="https://www.linkedin.com/in/shivani-sharma-636a15237/" target="_blank">
+                <button>
+                  <i class="fab fa-linkedin"></i> LinkedIn
+                </button>
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Add font-awesome for LinkedIn icon -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
